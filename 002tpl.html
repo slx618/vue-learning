@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript" src="js/vue.js">
+            
+        </script>
+    </head>
+    <body>
+        <div id="root">
+            <!-- 插值语法 -->
+            <h1>{{name}}</h1>
+            <h3>{{age}}</h3>
+            <hr >
+            <!-- 指令语法 -->
+            <a target="_blank" :href="url" v-bind:href="url">百度</a>
+        </div>
+        <script type="text/javascript">
+            const v = new Vue({
+                el: '#root',
+                data:{
+                    name: 'jack',
+                    age: 18,
+                    url: 'http://www.baidu.com'
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <div id="root">
+            <h1>{{$attrs}}</h1>
+        </div>
+        <script type="text/javascript">
+            const vm = new Vue({
+                data() {
+                    return {}
+                }
+            })
+            vm.$mount('#root')
+            let num = 199
+            let xx = {
+                name: 'xx',
+                age: 18
+            }
+            
+            Object.defineProperty (xx, 'age', {
+                // {
+                //     value : "xx",
+                //     enumerable: true,            //false无法直接遍历
+                //     writable: true,//是否可以修改
+                //     configurable: true //是否可以删除
+                // }
+                get() {
+                    return num //动态去取
+                },
+                set(value) {
+                    console.log('有人改了age:' + value)
+                    num = value
+                }
+            })
+            
+            console.log(xx)
+            
+            
+            let obj = {x:100}
+            let obj2 = {x: 300}
+            
+            Object.defineProperty (obj2, 'x', {
+                get() {
+                    return obj.x 
+                },
+                set(value) {
+                    obj.x = value
+                }
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        
+        <div id="root">
+            {{name}}
+        </div>
+        
+        <script type="text/javascript">
+            const v = new Vue({
+                //对象式写法
+                // data: {
+                //     name:'xxx'
+                // },
+                
+                //函数式写法
+                // data: function() {
+                //     //this 是Vue示例
+                //     return {
+                //         name: 'xxx'
+                //     }
+                // },
+                // 不能用箭头函数
+                // 箭头函数没this 会找外层的this 就成了window
+                // data: () => {
+                //     //this 是Vue示例
+                //     return {
+                //         name: 'xxx'
+                //     }
+                // },
+                data() {
+                    //this 是Vue示例
+                    return {
+                        name: 'xxx'
+                    }
+                }
+            })
+            
+            setTimeout(() => {
+                v.$mount('#root')
+            }, 1000)
+        </script>
+    </body>
+</html>
